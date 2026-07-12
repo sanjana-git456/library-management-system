@@ -26,4 +26,17 @@ public class Library {
             books.remove(book);
         }
     }
+    public void checkOutBook(int isbn) {
+        Book book = findbyIsbn(isbn);
+        if (book == null) {
+            System.out.println("Book with isbn " + isbn + "is not there");
+        }
+        else if (book.getIsAvailable() == false) {
+            System.out.println("Book with isbn " + isbn + "is not available at the moment");
+        }
+        else {
+            book.setIsAvailable(false);
+            book.setDueDate("1 week from today");
+        }
+    }
 }
