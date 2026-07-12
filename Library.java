@@ -25,7 +25,7 @@ public class Library {
     public void removeBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
-            System.out.println("Book with isbn " + isbn + "is not there");
+            System.out.println("Book with ISBN " + isbn + "is not there");
         } else {
             books.remove(book);
         }
@@ -34,9 +34,9 @@ public class Library {
     public void checkOutBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
-            System.out.println("Book with isbn " + isbn + "is not there");
+            System.out.println("Book with ISBN " + isbn + "is not there");
         } else if (book.getIsAvailable() == false) {
-            System.out.println("Book with isbn " + isbn + "is not available at the moment");
+            System.out.println("Book with ISBN " + isbn + "is not available at the moment");
         } else {
             book.setIsAvailable(false);
             book.setDueDate("1 week from today");
@@ -46,12 +46,21 @@ public class Library {
     public void returnBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
-            System.out.println("Book with isbn " + isbn + "is not there");
+            System.out.println("Book with ISBN " + isbn + "is not there");
         } else if (book.getIsAvailable() == true) {
-            System.out.println("Book with isbn " + isbn + "was never checked out");
+            System.out.println("Book with ISBN " + isbn + "was never checked out");
         } else {
             book.setIsAvailable(true);
             book.setDueDate(null);
+        }
+    }
+
+    public void displayBooks() {
+        for (Book book : books) {
+            System.out.println("Book ISBN: " + book.getIsbn());
+            System.out.println("Book Title: " + book.getTitle());
+            System.out.println("Book Author: " + book.getAuthor());
+            System.out.println("Book Avaialability: " + book.getIsAvailable());
         }
     }
 }
