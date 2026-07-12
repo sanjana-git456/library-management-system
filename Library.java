@@ -1,14 +1,18 @@
+
 import java.util.*;
 
 public class Library {
+
     private List<Book> books;
 
     public Library() {
         this.books = new ArrayList<>();
     }
+
     public void addBook(Book book) {
         books.add(book);
     }
+
     public Book findbyIsbn(int isbn) {
         for (Book book : books) {
             if (book.getIsbn() == isbn) {
@@ -17,26 +21,37 @@ public class Library {
         }
         return null;
     }
+
     public void removeBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
             System.out.println("Book with isbn " + isbn + "is not there");
-        }
-        else {
+        } else {
             books.remove(book);
         }
     }
+
     public void checkOutBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
             System.out.println("Book with isbn " + isbn + "is not there");
-        }
-        else if (book.getIsAvailable() == false) {
+        } else if (book.getIsAvailable() == false) {
             System.out.println("Book with isbn " + isbn + "is not available at the moment");
-        }
-        else {
+        } else {
             book.setIsAvailable(false);
             book.setDueDate("1 week from today");
+        }
+    }
+
+    public void returnBook(int isbn) {
+        Book book = findbyIsbn(isbn);
+        if (book == null) {
+            System.out.println("Book with isbn " + isbn + "is not there");
+        } else if (book.getIsAvailable() == true) {
+            System.out.println("Book with isbn " + isbn + "was never checked out");
+        } else {
+            book.setIsAvailable(true);
+            book.setDueDate(null);
         }
     }
 }
