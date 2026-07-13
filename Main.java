@@ -82,10 +82,29 @@ public class Main {
                                 library.addBook(book);
                                 break;
                             }
-                        }
 
-                        break;
+                            case 2: {
+                                System.out.println("Enter ISBN of book you want to remove: ");
+                                int isbn = scanner.nextInt();
+                                scanner.nextLine();
+                                library.removeBook(isbn);
+                                break;
+                            }
+
+                            case 3: {
+                                library.displayBooks();
+                                break;
+                            }
+
+                            case 4: {
+                                running = false;
+                                break;
+                            }
+                            default:
+                                System.out.println("Enter valid choice!");
+                        }
                     }
+                    break;
                 }
                 case 3:
                     appRunning = false;

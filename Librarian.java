@@ -9,6 +9,6 @@ public class Librarian extends User {
     public void showMenu() {
         System.out.println("Librarian Menu");
         System.out.println("Name: " + getName() + " | ID: " + getId());
-        System.out.println("1. Add Books  2. Remove Book  3. View Circulation Records  4. Exit");
+        System.out.println("1. Add Books  2. Remove Book  3. Display books  4. Exit");
     }
 }
