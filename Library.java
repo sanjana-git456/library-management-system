@@ -34,24 +34,26 @@ public class Library {
     public void checkOutBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
-            System.out.println("Book with ISBN " + isbn + "is not there");
+            System.out.println("Book with ISBN " + isbn + " is not there");
         } else if (book.getIsAvailable() == false) {
-            System.out.println("Book with ISBN " + isbn + "is not available at the moment");
+            System.out.println("Book with ISBN " + isbn + " is not available at the moment");
         } else {
             book.setIsAvailable(false);
             book.setDueDate("1 week from today");
+            System.out.println("Book checked out successfully! Please return the book within " + book.getDueDate());
         }
     }
 
     public void returnBook(int isbn) {
         Book book = findbyIsbn(isbn);
         if (book == null) {
-            System.out.println("Book with ISBN " + isbn + "is not there");
+            System.out.println("Book with ISBN " + isbn + " is not there");
         } else if (book.getIsAvailable() == true) {
-            System.out.println("Book with ISBN " + isbn + "was never checked out");
+            System.out.println("Book with ISBN " + isbn + " was never checked out");
         } else {
             book.setIsAvailable(true);
             book.setDueDate(null);
+            System.out.println("Book returned! Thank you!");
         }
     }
 
