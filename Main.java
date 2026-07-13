@@ -115,6 +115,5 @@ public class Main {
                     System.out.println("Enter valid choice!");
             }
         }
-        scanner.close();
     }
 }
