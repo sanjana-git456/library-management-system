@@ -21,6 +21,21 @@ public class Main {
             String email = scanner.nextLine();
             Customer c = new Customer(name, userId, email);
             c.showMenu();
+            System.out.println("Enter your choice: ");
+            int ch = scanner.nextInt();
+            if (ch == 1) {
+                library.displayBooks();
+            } else if (ch == 2) {
+                System.out.println("Enter ISBN of book you want to checkout: ");
+                int is = scanner.nextInt();
+                library.checkOutBook(is);
+            } else if (ch == 3) {
+                System.out.println("Enter ISBN of book you want to return: ");
+                int is = scanner.nextInt();
+                library.returnBook(is);
+            } else {
+                System.out.println("Enter valid choice!");
+            }
         } else if (choice == 2) {
             System.out.println("Enter your userId: ");
             int userId = scanner.nextInt();
