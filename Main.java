@@ -73,6 +73,6 @@ public class Main {
                 default:
                     System.out.println("Enter valid choice!");
             }
-                }
+        }
     }
 }
