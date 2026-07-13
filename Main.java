@@ -64,8 +64,28 @@ public class Main {
                     System.out.println("Enter your email: ");
                     String email = scanner.nextLine();
                     Librarian l = new Librarian(name, userId, email);
-                    l.showMenu();
-                    break;
+                    boolean running = true;
+                    while (running) {
+                        l.showMenu();
+                        System.out.println("Enter your choice: ");
+                        int ch = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (ch) {
+                            case 1: {
+                                System.out.println("Enter title of new book: ");
+                                String title = scanner.nextLine();
+                                System.out.println("Enter author of new book: ");
+                                String author = scanner.nextLine();
+                                System.out.println("Enter ISBN of new book: ");
+                                int isbn = scanner.nextInt();
+                                Book book = new Book(title, author, isbn);
+                                library.addBook(book);
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
                 }
                 case 3:
                     appRunning = false;
