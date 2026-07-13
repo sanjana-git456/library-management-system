@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Library library = new Library();
+        library.addBook(new Book("The Alchemist", "Paulo Coelho", 101));
+        library.addBook(new Book("1984", "George Orwell", 102));
         boolean appRunning = true;
         while (appRunning) {
             System.out.println("Welcome to the Library System");
@@ -113,5 +115,6 @@ public class Main {
                     System.out.println("Enter valid choice!");
             }
         }
+        scanner.close();
     }
 }
